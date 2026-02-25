@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscrição - 1º Hackathon</title>
+</head>
+<body>
+    <h1>Inscrição - 1º Hackathon de Informática</h1>
+    <form action="#">
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            <label>Nome Completo: <input type="text" name="nome" required></label><br><br>
+            <label>E-mail: <input type="email" name="email" required></label><br><br>
+            <label>Senha: <input type="password" name="senha" required></label><br><br>
+            <label>Data de Nascimento: <input type="date" name="nascimento"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Perfil Técnico</legend>
+            <p>Linguagens de interesse:</p>
+            <label><input type="checkbox" name="lang" value="html"> HTML</label>
+            <label><input type="checkbox" name="lang" value="css"> CSS</label>
+            <label><input type="checkbox" name="lang" value="js"> JavaScript</label><br><br>
+            
+            <p>Nível de experiência:</p>
+            <label><input type="radio" name="nivel" value="iniciante"> Iniciante</label>
+            <label><input type="radio" name="nivel" value="intermediario"> Intermediário</label><br><br>
+            
+            <label>Anexe seu currículo: <input type="file" name="curriculo"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Detalhes do Evento</legend>
+            <label>Tamanho da Camiseta:
+                <select name="camiseta">
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                </select>
+            </label><br><br>
+            <label>Carta de Motivação:<br>
+                <textarea name="motivacao" rows="4" cols="30"></textarea>
+            </label>
+        </fieldset>
+
+        <button type="submit">Enviar Inscrição</button>
+    </form>
+</body>
+</html>
