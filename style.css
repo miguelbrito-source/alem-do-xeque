@@ -1,198 +1,226 @@
-/* Tema Dark Profissional - Inspirado em Chess.com / Lichess 2025–2026 */
+/* Tema Dark Profissional - AlémDoXeque 2026 */
 :root {
-    --bg-main:        #1e1e1e;       /* Fundo principal escuro */
-    --bg-section:     #262421;       /* Seções e cards */
-    --bg-header:      #181614;       /* Cabeçalho mais escuro */
-    --accent-green:   #81b64c;       /* Verde clássico Chess.com */
-    --accent-green-light: #a3d16e;
-    --text-primary:   #e8e8e8;       /* Texto claro principal */
+    --bg-main:        #121212;       /* Fundo profundo */
+    --bg-section:     #21201d;       /* Cards */
+    --bg-header:      #1a1918;       /* Header */
+    --accent-green:   #81b64c;       /* Verde Chess.com */
+    --accent-green-hover: #a3d16e;
+    --text-primary:   #ffffff;
     --text-secondary: #bababa;
     --border-dark:    #312e2b;
     --board-light:    #eeeed2;
     --board-dark:     #769656;
+    --transition:     all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Reset Pro */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     line-height: 1.6;
-    min-height: 100vh;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
-/* Cabeçalho */
+/* Container Principal para limitar largura no Desktop */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho Profissional */
 header {
     background-color: var(--bg-header);
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
     text-align: center;
-    border-bottom: 4px solid var(--accent-green);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 h1 {
-    color: white;
-    font-size: 2.4rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
 }
 
 .status-usuario {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    font-size: 1.1rem;
-    margin-top: 0.8rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .status-usuario p {
-    background: rgba(129,182,76,0.12);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: 1px solid rgba(129,182,76,0.3);
+    background: #2b2926;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-dark);
+    font-size: 0.95rem;
+    color: var(--accent-green);
 }
 
-/* Navegação */
+/* Navegação Estilizada */
 nav {
-    margin: 1.5rem 0;
-    text-align: center;
+    margin: 2rem 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 nav a {
-    color: var(--accent-green);
+    color: var(--text-secondary);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    transition: all 0.25s ease;
+    font-weight: 500;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
-nav a:hover,
-nav a:focus {
-    background-color: rgba(129,182,76,0.15);
-    color: white;
-    transform: translateY(-1px);
+nav a:hover {
+    color: var(--accent-green);
+    background: rgba(129, 182, 76, 0.1);
+    border-color: rgba(129, 182, 76, 0.2);
 }
 
-/* Tabuleiro (placeholder mais realista) */
+/* Tabuleiro com Proporção Mantida */
 #board {
-    width: 360px;
-    height: 360px;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1; /* Mantém quadrado perfeito */
     margin: 2rem auto;
-    border: 8px solid var(--border-dark);
+    border: 10px solid var(--border-dark);
     border-radius: 8px;
     background-image: 
         linear-gradient(45deg, var(--board-dark) 25%, var(--board-light) 25%, 
         var(--board-light) 50%, var(--board-dark) 50%, var(--board-dark) 75%, 
         var(--board-light) 75%, var(--board-light) 100%);
-    background-size: 90px 90px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-    position: relative;
+    background-size: 12.5% 12.5%; /* 8x8 perfeito */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
 }
 
-/* Seções gerais */
+/* Cards de Seção */
 section {
     background-color: var(--bg-section);
-    padding: 1.8rem;
-    margin-bottom: 1.8rem;
-    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
     border: 1px solid var(--border-dark);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: var(--transition);
+}
+
+section:hover {
+    border-color: #444;
+    transform: translateY(-4px);
 }
 
 h2 {
     color: var(--accent-green);
-    margin-bottom: 1.2rem;
-    border-bottom: 2px solid rgba(129,182,76,0.3);
-    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Formulário de onboarding */
+/* Formulário UI/UX */
 #form-onboarding {
     display: grid;
-    gap: 1.2rem;
-    max-width: 420px;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    gap: 1.5rem;
+    max-width: 500px;
 }
 
 input, select {
     width: 100%;
-    padding: 0.9rem;
-    background-color: #2f2c29;
-    border: 1px solid #403d39;
+    padding: 1rem;
+    background-color: #1a1918;
+    border: 2px solid var(--border-dark);
     color: white;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
 }
 
 input:focus, select:focus {
     outline: none;
     border-color: var(--accent-green);
-    box-shadow: 0 0 0 3px rgba(129,182,76,0.25);
+    background-color: #252422;
 }
 
-/* Botões profissionais */
+/* Botões com Feedback Visual */
 button {
     background-color: var(--accent-green);
-    color: white;
+    color: #121212;
     border: none;
-    padding: 0.9rem 1.8rem;
-    border-radius: 6px;
-    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.22s ease;
-    box-shadow: 0 4px 0 #5e8a38;
+    transition: var(--transition);
 }
 
 button:hover {
-    background-color: var(--accent-green-light);
-    transform: translateY(-2px);
+    background-color: var(--accent-green-hover);
+    box-shadow: 0 0 20px rgba(129, 182, 76, 0.4);
 }
 
 button:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 0 #5e8a38;
+    transform: scale(0.98);
 }
 
 /* Footer */
 footer {
     text-align: center;
-    margin-top: 3rem;
-    padding: 1.5rem;
-    color: #888;
-    font-size: 0.95rem;
-    border-top: 1px solid #333;
+    padding: 4rem 1rem;
+    color: #555;
 }
 
-#ajuda-mestre {
-    margin-top: 1rem;
-    background-color: #4a6fa5;
-    box-shadow: 0 4px 0 #36517a;
+/* --- MEDIA QUERIES (RESPONSIVIDADE PRO) --- */
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .status-usuario { gap: 0.8rem; }
 }
 
-#ajuda-mestre:hover {
-    background-color: #5c85c2;
+@media (max-width: 480px) {
+    body { padding: 0.8rem; }
+    
+    header { padding: 1.5rem 1rem; }
+    
+    nav ul { gap: 0.5rem; }
+    
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+        background: #252422;
+    }
+
+    #board {
+        max-width: 300px;
+    }
+
+    button {
+        width: 100%;
+    }
 }

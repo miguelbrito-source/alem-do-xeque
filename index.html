@@ -9,15 +9,17 @@
 <body>
 
     <header>
-        <h1>AlémDoXeque ♟️</h1>
-        <div class="status-usuario">
-            <p>Patente: <strong id="patente">Mestre do AlémDoXeque</strong></p> 
-            <p>Rating Elo: <span id="elo">1200</span></p> 
+        <div class="header-content">
+            <h1>AlémDoXeque ♟️</h1>
+            <div class="status-usuario">
+                <p>Patente: <strong id="patente">Mestre</strong></p> 
+                <p>Rating Elo: <span id="elo">1200</span></p> 
+            </div>
         </div>
     </header>
 
     <nav>
-        <ul>
+        <ul class="menu-principal">
             <li><a href="#fundamentos">Fundamentos</a></li>
             <li><a href="#aberturas">Aberturas</a></li>
             <li><a href="#meio-jogo">Meio-Jogo</a></li>
@@ -25,11 +27,11 @@
         </ul>
     </nav>
 
-    <main>
+    <main class="container">
         
-        <section id="onboarding">
+        <section id="onboarding" class="card">
             <h2>Sua Jornada Começa Aqui</h2>
-            <form id="form-onboarding">
+            <form id="form-onboarding" class="flex-form">
                 <label for="nome">Nome do Jogador:</label>
                 <input type="text" id="nome" placeholder="Digite seu nome" required>
 
@@ -39,30 +41,30 @@
                     <option value="competicao">Competição</option>
                 </select>
 
-                <button type="submit">Iniciar Treino</button>
+                <button type="submit" class="btn-principal">Iniciar Treino</button>
             </form>
         </section>
 
-        <section id="arena-treino">
-            <article id="tabuleiro-exploracao">
-                <h2>Tabuleiro de Exploração</h2>
-                <div id="board" style="width: 320px; height: 320px; background-color: #ddd;">
-                    [Espaço para Barra de Avaliação da Engine - RF06]
+        <section id="arena-treino" class="grid-arena">
+            <article id="tabuleiro-exploracao" class="card">
+                <h2>Exploração</h2>
+                <div id="board">
+                    [Barra de Avaliação]
                 </div>
             </article>
 
-            <article id="puzzles-taticos">
+            <article id="puzzles-taticos" class="card">
                 <h2>Banco de Puzzles</h2>
                 <p>Resolva o desafio para liberar o próximo nível!</p> 
-                <button id="dica-progressiva">Pedir Dica</button> 
+                <button id="dica-progressiva" class="btn-secundario">Pedir Dica</button> 
             </article>
         </section>
 
-        <section id="aulas-video">
+        <section id="aulas-video" class="card">
             <h2>Aulas Interativas</h2>
             <div class="video-container">
-                <p>O conteúdo será pausado para exercícios em tempo real.</p> 
-                <button id="btn-espiada">Usar Medalha para Espiada</button> 
+                <p>Conteúdo pausado para exercícios em tempo real.</p> 
+                <button id="btn-espiada" class="btn-secundario">Usar Medalha</button> 
             </div>
         </section>
 
@@ -70,7 +72,7 @@
 
     <footer>
         <p>&copy; 2026 AlémDoXeque - Projeto Educacional</p>
-        <button id="ajuda-mestre">Dúvida ao Mestre (Análise de IA)</button> 
+        <button id="ajuda-mestre" class="btn-ia">Dúvida ao Mestre (IA)</button> 
     </footer>
 
 </body>
