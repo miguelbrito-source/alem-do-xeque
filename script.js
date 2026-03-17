@@ -1,41 +1,44 @@
-/* ALÉM DO XEQUE - Lógica de Interatividade
-   Atividade: JavaScript do Zero
+/* ALÉM DO XEQUE - Manipulação do DOM
+   Objetivo: Capturar o nome do jogador e atualizar a interface
 */
 
-// 1. Mensagem de teste para o Console (Requisito da Atividade)
-console.log("O JavaScript está funcionando! ♟️");
+// 1. Seleção de Elementos usando querySelector (Mais moderno que getElementById)
+const botaoTreino = document.querySelector('.btn-principal'); 
+const inputNome = document.querySelector('#nome');
+const nomeNoHeader = document.querySelector('#patente'); // Aonde diz "Mestre"
+const form = document.querySelector('#form-onboarding');
 
-// 2. Seleção de Elementos
-// Buscamos o botão pelo ID que definimos no HTML
-const botaoMestre = document.getElementById('ajuda-mestre');
-const campoNome = document.getElementById('nome'); // Input do formulário
-const formOnboarding = document.getElementById('form-onboarding');
+// 2. Função (Arrow Function) para atualizar o nome
+const atualizarNome = (event) => {
+    // Evita que a página recarregue ao clicar no botão do formulário
+    event.preventDefault();
 
-// 3. Banco de Dados Simples (Dicas do Mestre)
-const dicas = [
-    "Controle o centro do tabuleiro (casas e4, d4, e5, d5).",
-    "Desenvolva peças menores (Cavalos e Bispos) antes das grandes.",
-    "Não tire a Dama cedo demais; ela pode se tornar um alvo.",
-    "O Roque é a melhor forma de proteger seu Rei e conectar torres.",
-    "Observe sempre a última jogada do adversário: qual a ameaça?",
-    "Peões são a alma do xadrez; não os mova sem um plano."
-];
+    // Pegamos o valor digitado no input
+    const nomeDigitado = inputNome.value;
 
-// 4. Função para dar a Dica Aleatória
-botaoMestre.addEventListener('click', () => {
-    // Math.random gera um número entre 0 e 1
-    // Math.floor arredonda para baixo para termos um índice válido da lista
-    const indice = Math.floor(Math.random() * dicas.length);
-    const dicaSelecionada = dicas[indice];
+    if (nomeDigitado !== "") {
+        // Manipulação do DOM: Alterando o texto interno da tag <strong>
+        nomeNoHeader.textContent = nomeDigitado;
+        
+        // Mudando o estilo via JS para dar um feedback visual
+        nomeNoHeader.style.color = "#81b64c"; 
+        
+        alert(`Bem-vindo ao tabuleiro, ${nomeDigitado}!`);
+    } else {
+        alert("Por favor, digite seu nome de enxadrista.");
+    }
+};
 
-    // Exibe o alerta na tela
-    alert("💡 DICA DO MESTRE:\n" + dicaSelecionada);
-});
+// 3. Evento: "Escutando" o envio do formulário
+form.addEventListener('submit', atualizarNome);
 
-// 5. Extra: Interatividade no Formulário
-// Quando o usuário enviar o formulário, damos as boas-vindas
-formOnboarding.addEventListener('submit', (event) => {
-    event.preventDefault(); // Impede a página de recarregar
-    const nomeJogador = campoNome.value;
-    alert(`Boa sorte na sua jornada, ${nomeJogador}! Seu treinamento começou.`);
+// --- INTERAÇÃO 2: Dica Aleatória (Refatorada) ---
+const botaoDica = document.querySelector('#ajuda-mestre');
+
+botaoDica.addEventListener('click', () => {
+    const dicas = ["Domine o centro", "Proteja o Rei", "Desenvolva as peças"];
+    const aleatoria = dicas[Math.floor(Math.random() * dicas.length)];
+    
+    // Criando um elemento novo dinamicamente (Manipulação de DOM avançada)
+    console.log("Dica gerada: " + aleatoria);
 });
