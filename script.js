@@ -42,3 +42,4 @@ botaoDica.addEventListener('click', () => {
     // Criando um elemento novo dinamicamente (Manipulação de DOM avançada)
     console.log("Dica gerada: " + aleatoria);
 });
+//fim do codigo
